@@ -1,0 +1,29 @@
+<header style="height: 5vh;">
+  <!--sm以下はメニューを折りたたむ-->
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+      
+      <!--ブランド名-->
+      <a class="navbar-brand" href="/">Emotions & Snap</a>
+      
+      <!--ハンバーガーボタン-->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSuportedContent">
+        <span class=navbar-toggler-icon></span>
+      </button>
+      
+      <!--リンク-->
+      <div class="collapse navbar-collapse justify-content-between" id="navbarSuportedContent">
+        
+        <ul class="navbar-nav">
+          <li class="nav-item"><%= link_to "Snaps", "#", class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to "About", "#", class: "nav-link" %></li>
+        </ul>
+        
+        <ul class="navbar-nav">
+          <li class="nav-item"><%= link_to "Sign up", signup_path, class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to "Login", "#", class: "nav-link" %></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

@@ -1,0 +1,38 @@
+<div class="d-flex">
+  
+  <!--イメージ画像-->
+  <div class="half-view sign-up-image"><div class="half-view image-filter"></div></div>
+  
+  
+  <!--フォーム-->
+  <div class="half-view">
+    <div class="form">
+      <%= form_with(model: @user) do |f| %>
+      
+      <h2 class="text-center">Sign up</h2>
+      
+      <%= render "layouts/error_messages", model: f.object %>
+        
+        <div class="input">
+          <%= f.label :name, "Name" %>
+          <%= f.text_field :name, class: "form-control" %>
+        </div>
+        <div class="input">
+          <%= f.label :email, "Email" %>
+          <%= f.email_field :email, class: "form-control" %>
+        </div>
+        <div class="input">
+          <%= f.label :password, "Password" %>
+          <%= f.password_field :password, class: "form-control" %>
+        </div>
+        <div class="input">
+          <%= f.label :password_confirmation, "Confirmation" %>
+          <%= f.password_field :password_confirmation, class: "form-control" %>
+        </div>
+        <div class="input">
+          <%= f.submit "Sign up", class: "btn btn-dark w-100" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

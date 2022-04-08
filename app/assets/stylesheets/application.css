@@ -13,3 +13,26 @@
  *= require_tree .
  *= require_self
  */
+i {
+  font-size: 10vw;
+}
+
+.form {
+  margin-top: 20vh;
+}
+
+.input {
+  height: 10vh;
+  width: 40vw;
+  margin: auto;
+}
+
+.half-view {
+  width: 50vw; height: 100vh;
+}
+
+.alert {
+  width: 40vw;
+  padding: 0;
+  margin: 2.5vw auto;
+}
