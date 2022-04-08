@@ -13,8 +13,8 @@ Rails.application.routes.draw do
   get "login", to: "sessions#new"
   post "login", to: "sessions#create"
   delete "logout", to: "sessions#destroy"
-  
-  
+  # snaps#index=Topページ, snaps#
+  resources :snaps
 end
 
 # Prefix              Verb            URI Pattern                Controller#Action
@@ -28,3 +28,12 @@ end
 # login               GET             /login(.:format)           sessions#new
 #                     POST            /login(.:format)           sessions#create
 # logout              DELETE          /logout(.:format)          sessions#destroy
+
+# snaps               GET             /snaps(.:format)           snaps#index
+#                     POST            /snaps(.:format)           snaps#create
+# new_snap            GET             /snaps/new(.:format)       snaps#new
+# edit_snap           GET             /snaps/:id/edit(.:format)  snaps#edit
+# snap                GET             /snaps/:id(.:format)       snaps#show
+#                     PATCH           /snaps/:id(.:format)       snaps#update
+#                     PUT             /snaps/:id(.:format)       snaps#update
+#                     DELETE          /snaps/:id(.:format)       snaps#destroy

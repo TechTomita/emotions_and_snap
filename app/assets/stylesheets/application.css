@@ -18,22 +18,68 @@
   font-size: 10vw;
 }
 
+.half-view {
+  width: 50vw;
+  height: 100vh;
+}
+
+.two-thirds-view {
+  width: 66.5vw;
+  height: 100vh;
+}
+
+.one-third-view {
+  width: 33.5vw;
+  height: 100vh
+}
+
 .form {
   margin-top: 20vh;
+}
+
+.snap-form {
+  margin: 15vh auto 5vh;
+  width: 70vw;
+}
+
+.edit-snap-form {
+  margin: 15vh auto 5vh;
+  width: 33vw;
 }
 
 .input {
   height: 10vh;
   width: 40vw;
-  margin: auto;
+  margin: 2vh auto;
 }
 
-.half-view {
-  width: 50vw; height: 100vh;
+.snap-input {
+  height: 10vh;
+  margin: 3vh;
+}
+
+#snap-input {
+  width: 100%;
+}
+
+.input-border {
+  border: 0.5vw solid;
+  border-radius: 2vw;
+  margin-bottom: 5vh;
 }
 
 .alert {
   width: 40vw;
   padding: 0;
   margin: 2.5vw auto;
+}
+
+.image img {
+  width: 100%;
+  height: 100%;
+}
+
+.snap {
+  width: 30vw;
+  margin: 0;
 }

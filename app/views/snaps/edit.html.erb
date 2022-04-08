@@ -1,0 +1,49 @@
+<div class="d-flex">
+  <!--編集する画像-->
+  <div class="two-thirds-view bg-dark">
+    <li class="list-unstyled image"><%= image_tag(@snap.image.url) %></li>
+  </div>
+  
+  <!--編集フォーム-->
+  <div class="one-third-view">
+    <%= form_with(model: @snap) do |f| %>
+  
+      <%= render "layouts/error_messages", model: f.object %>
+    
+      <div class="edit-snap-form">
+        <div class="input-border">
+                
+          <div class="snap-input">
+            <%= f.label :title, "Title" %>
+            <%= f.text_field :title, class: "form-control" %>
+          </div>
+                
+          <div class="snap-input">
+            <%= f.label :category, "Category" %>
+            <%= f.text_field :category, class: "form-control" %>
+          </div>
+                
+          <div class="snap-input">
+            <%= f.label :description, "Description" %>
+            <%= f.text_area :description, class: "form-control" %>
+          </div>
+                
+          <div class="snap-input">
+            <%= f.label :image, "Snap" %>
+            <%= f.file_field :image, class: "form-control", id: :snap_image %>
+            <%= f.hidden_field :post_image_cache %>
+          </div>
+        </div>
+                
+        <div class="pt-2" id="snap-input">
+          <%= f.submit "Update", class: "btn btn-dark rounded-pill w-100"  %>
+        </div>
+        
+        <!--削除ボタン-->
+        <div class="pt-5" id="snap-input">
+          <%= link_to "Delete", snap_path(@snap), method: :delete, class: "btn btn-danger rounded-pill w-100" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

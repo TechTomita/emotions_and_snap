@@ -1,0 +1,35 @@
+  <%= form_with(model: @snap) do |f| %>
+  
+    <%= render "layouts/error_messages", model: f.object %>
+    
+    <div class="snap-form">
+      <div class="input-border">
+        
+        <div class="snap-input">
+          <%= f.label :title, "Title" %>
+          <%= f.text_field :title, class: "form-control" %>
+        </div>
+        
+        <div class="snap-input">
+          <%= f.label :category, "Category" %>
+          <%= f.text_field :category, class: "form-control" %>
+        </div>
+        
+        <div class="snap-input">
+          <%= f.label :description, "Description" %>
+          <%= f.text_area :description, class: "form-control" %>
+        </div>
+        
+        <div class="snap-input">
+          <%= f.label :image, "Snap" %>
+          <%= f.file_field :image, class: "form-control", id: :snap_image %>
+          <%= f.hidden_field :post_image_cache %>
+        </div>
+      </div>
+        
+      <div class="pt-2" id="snap-input">
+        <%= f.submit "Upload", class: "btn btn-dark rounded-pill w-100"  %>
+      </div>
+    </div>
+    
+  <% end %>

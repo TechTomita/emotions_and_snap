@@ -21,8 +21,8 @@
         
         <% if logged_in? %>
           <ul class="navbar-nav">
-            <li class="nav-item"><%= link_to "Upload", "#", class: "nav-link" %></li>
-            
+            <li class="nav-item"><%= link_to "Upload", new_snap_path, class: "nav-link" %></li>
+            <!--ユーザメニュー-->
             <li class="nav-item dropdown-togolle" type="button" data-bs-toggle="dropdown"><span class="nav-link"><i class="fa-solid fa-circle-user"></i></span></li>
               <ul class="dropdown-menu dropdown-menu-end">
                 <li class="dropdown-item"><%= link_to "User profile", user_path(current_user) %></li>
@@ -31,6 +31,7 @@
               </ul>
             </ul>
         <% else %>
+          <!--会員登録・ログイン-->
           <ul class="navbar-nav">
             <li class="nav-item"><%= link_to "Sign up", signup_path, class: "nav-link" %></li>
             <li class="nav-item"><%= link_to "Login", login_path, class: "nav-link" %></li>
