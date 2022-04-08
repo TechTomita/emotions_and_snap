@@ -9,6 +9,11 @@ Rails.application.routes.draw do
   # users#show=ユーザ詳細ページ, users#create=ユーザ作成アクション
   resources :users, only: [:show, :create]
   
+  # sessions#new=ログインページ, sessions#create=ログインアクション, sessions#destroy=ログアウトアクション
+  get "login", to: "sessions#new"
+  post "login", to: "sessions#create"
+  delete "logout", to: "sessions#destroy"
+  
   
 end
 
@@ -19,3 +24,7 @@ end
 # signup              GET             /signup(.:format)          users#new
 # users               POST            /users(.:format)           users#create
 # user                GET             /users/:id(.:format)       users#show
+
+# login               GET             /login(.:format)           sessions#new
+#                     POST            /login(.:format)           sessions#create
+# logout              DELETE          /logout(.:format)          sessions#destroy
