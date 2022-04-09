@@ -44,7 +44,7 @@ class SnapsController < ApplicationController
   private
   
   def snap_params
-    params.require(:snap).permit(:title, :description, :category, :image)
+    params.require(:snap).permit(:title, :description, :category_id, :image)
   end
   
   # ログインしているユーザの投稿でなければ、Topページに戻る

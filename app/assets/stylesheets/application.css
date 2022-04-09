@@ -68,6 +68,15 @@
   margin-bottom: 5vh;
 }
 
+label[for="snap_category"] {
+    display: block;
+}
+
+select[name="snap[category_id]"] {
+  height: 5vh;
+  width: 100%;
+}
+
 .alert {
   width: 40vw;
   padding: 0;
