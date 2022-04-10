@@ -14,7 +14,7 @@
  *= require_self
  */
  
-#show-icon {
+#user-show-icon {
   font-size: 10vw;
 }
 
@@ -68,6 +68,12 @@
   margin-bottom: 5vh;
 }
 
+.show-border {
+  border: 0.1vw solid;
+  border-radius: 0.3vw;
+  padding: 2%;
+}
+
 label[for="snap_category"] {
     display: block;
 }
@@ -91,4 +97,8 @@ select[name="snap[category_id]"] {
 .snap {
   width: 30vw;
   margin: 0;
+}
+
+.link-border {
+  text-decoration: none;
 }

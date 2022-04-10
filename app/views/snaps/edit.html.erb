@@ -20,7 +20,7 @@
                 
           <div class="snap-input">
             <%= f.label :category, "Category" %>
-            <%= f.text_field :category, class: "form-control" %>
+            <%= f.collection_select(:category_id, Category.all, :id, :name) %>
           </div>
                 
           <div class="snap-input">
@@ -28,11 +28,6 @@
             <%= f.text_area :description, class: "form-control" %>
           </div>
                 
-          <div class="snap-input">
-            <%= f.label :image, "Snap" %>
-            <%= f.file_field :image, class: "form-control", id: :snap_image %>
-            <%= f.hidden_field :post_image_cache %>
-          </div>
         </div>
                 
         <div class="pt-2" id="snap-input">

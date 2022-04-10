@@ -4,9 +4,27 @@
     <li class="list-unstyled image"><%= image_tag(@snap.image.url) %></li>
   </div>
   
-  <div class="one-third-view">
-    <div><%= @snap.user.name %></div>
-    <div><%= @snap.description %></div>
+  <div class="one-third-view p-5">
+    
+    <h1 class="mb-5"><i class="fa-solid fa-circle-user" id="show-icon"></i> <%= link_to @snap.user.name, user_path(@snap.user), class: "link-border" %></h1>
+    
+    <h2 class="mb-5"><i class="fa-solid fa-star"></i>Favorite</h2>
+    
+    <% if current_user.id == @snap.user.id %>
+    <h3 class="text-end"><%= link_to "Edit item", edit_snap_path(@snap), class: "link-border" %></h3>
+    <% end %>
+    
+    <h2>Description</h2>
+    <h4 class="show-border mb-5"><%= @snap.description %></h4>
+    
+    <h2 class="mb-5">favorite button</h2>
+    
+    <h2 class="mb-5">add comment form</h2>
+    
+    <h2>Comment</h2>
+    <h4>comment1</h4>
+    <h4>comment1</h4>
+    <h5>Delete button</h5>
   </div>
   
 </div>
