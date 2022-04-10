@@ -11,4 +11,20 @@ class User < ApplicationRecord
   has_secure_password
   
   has_many :snaps
+  has_many :favorite_relationships
+  # snapを取得
+  has_many :favorite_snaps, through: :favorite_relationships, source: :snap
+  
+  def favorite(snap)
+    self.favorite_relationships.find_or_create_by(snap_id: snap.id)
+  end
+  
+  def unfavorite(snap)
+    favorite_relationship = self.favorite_relationships.find_by(snap_id: snap.id)
+    favorite_relationship.destroy if favorite_relationship
+  end
+  
+  def favorite?(snap)
+    self.favorite_snaps.include?(snap)
+  end
 end

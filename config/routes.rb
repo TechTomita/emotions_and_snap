@@ -16,25 +16,31 @@ Rails.application.routes.draw do
   
   # snaps#index=Topページ, snaps#
   resources :snaps
+  
+  # favorite_relationships#create=お気に入り登録アクション, favorite_relationships#destroy=お気に入り削除アクション
+  resources :favorite_relationships, only: [:create, :destroy]
 end
 
-# Prefix              Verb            URI Pattern                Controller#Action
+# Prefix                 Verb   URI Pattern                           Controller#Action
 
-# root                GET             /                          snaps#index
+# root                   GET    /                                     snaps#index
 
-# signup              GET             /signup(.:format)          users#new
-# users               POST            /users(.:format)           users#create
-# user                GET             /users/:id(.:format)       users#show
+# signup                 GET    /signup(.:format)                     users#new
+# users                  POST   /users(.:format)                      users#create
+# user                   GET    /users/:id(.:format)                  users#show
 
-# login               GET             /login(.:format)           sessions#new
-#                     POST            /login(.:format)           sessions#create
-# logout              DELETE          /logout(.:format)          sessions#destroy
+# login                  GET    /login(.:format)                      sessions#new
+#                        POST   /login(.:format)                      sessions#create
+# logout                 DELETE /logout(.:format)                     sessions#destroy
 
-# snaps               GET             /snaps(.:format)           snaps#index
-#                     POST            /snaps(.:format)           snaps#create
-# new_snap            GET             /snaps/new(.:format)       snaps#new
-# edit_snap           GET             /snaps/:id/edit(.:format)  snaps#edit
-# snap                GET             /snaps/:id(.:format)       snaps#show
-#                     PATCH           /snaps/:id(.:format)       snaps#update
-#                     PUT             /snaps/:id(.:format)       snaps#update
-#                     DELETE          /snaps/:id(.:format)       snaps#destroy
+# snaps                  GET    /snaps(.:format)                      snaps#index
+#                        POST   /snaps(.:format)                      snaps#create
+# new_snap               GET    /snaps/new(.:format)                  snaps#new
+# edit_snap              GET    /snaps/:id/edit(.:format)             snaps#edit
+# snap                   GET    /snaps/:id(.:format)                  snaps#show
+#                        PATCH  /snaps/:id(.:format)                  snaps#update
+#                        PUT    /snaps/:id(.:format)                  snaps#update
+#                        DELETE /snaps/:id(.:format)                  snaps#destroy
+
+# favorite_relationships POST   /favorite_relationships(.:format)     favorite_relationships#create
+# favorite_relationship  DELETE /favorite_relationships/:id(.:format) favorite_relationships#destroy

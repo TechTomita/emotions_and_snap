@@ -9,4 +9,8 @@ class ApplicationController < ActionController::Base
       redirect_to login_url
     end
   end
+  
+  def count(snap)
+    @count_favorite = snap.favorite_users.count
+  end
 end

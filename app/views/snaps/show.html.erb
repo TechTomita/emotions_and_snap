@@ -10,14 +10,28 @@
     
     <h2 class="mb-5"><i class="fa-solid fa-star"></i>Favorite</h2>
     
-    <% if current_user.id == @snap.user.id %>
+    <% if logged_in? && current_user.id == @snap.user.id %>
     <h3 class="text-end"><%= link_to "Edit item", edit_snap_path(@snap), class: "link-border" %></h3>
     <% end %>
     
     <h2>Description</h2>
     <h4 class="show-border mb-5"><%= @snap.description %></h4>
     
-    <h2 class="mb-5">favorite button</h2>
+    <div class="mb-5">
+      <% if logged_in? %>
+        <% if current_user.favorite?(@snap) %>
+          <%= form_with(model: current_user.favorite_relationships.find_by(snap_id: @snap.id), method: :delete) do |f| %>
+            <%= hidden_field_tag :snap_id, @snap.id %>
+            <%= f.submit "Unfollow", class: "btn btn-danger rounded-pill w-100" %>
+          <% end %>
+        <% else %>
+          <%= form_with(model: current_user.favorite_relationships.build) do |f| %>
+            <%= hidden_field_tag :snap_id, @snap.id %>
+            <%= f.submit "follow", class: "btn btn-primary rounded-pill w-100" %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
     
     <h2 class="mb-5">add comment form</h2>
     

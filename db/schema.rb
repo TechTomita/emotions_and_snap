@@ -10,12 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_09_113513) do
+ActiveRecord::Schema.define(version: 2022_04_10_001438) do
 
   create_table "categories", charset: "utf8mb4", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "favorite_relationships", charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "snap_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["snap_id"], name: "index_favorite_relationships_on_snap_id"
+    t.index ["user_id", "snap_id"], name: "index_favorite_relationships_on_user_id_and_snap_id", unique: true
+    t.index ["user_id"], name: "index_favorite_relationships_on_user_id"
   end
 
   create_table "snaps", charset: "utf8mb4", force: :cascade do |t|
@@ -38,6 +48,8 @@ ActiveRecord::Schema.define(version: 2022_04_09_113513) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "favorite_relationships", "snaps"
+  add_foreign_key "favorite_relationships", "users"
   add_foreign_key "snaps", "categories"
   add_foreign_key "snaps", "users"
 end
