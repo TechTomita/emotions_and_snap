@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    @snaps = @user.snaps.all
+    @my_snaps = @user.snaps.all
+    @favorite_snaps = @user.favorite_snaps.all
   end
 
   def new

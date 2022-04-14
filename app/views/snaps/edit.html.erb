@@ -1,7 +1,7 @@
 <div class="d-flex">
   <!--編集する画像-->
   <div class="two-thirds-view bg-dark">
-    <li class="list-unstyled image"><%= image_tag(@snap.image.url) %></li>
+    <li class="list-unstyled image show-img"><%= image_tag(@snap.image.url) %></li>
   </div>
   
   <!--編集フォーム-->
@@ -25,7 +25,7 @@
                 
           <div class="snap-input">
             <%= f.label :description, "Description" %>
-            <%= f.text_area :description, class: "form-control" %>
+            <%= f.text_area :description, class: "form-control text-area-height" %>
           </div>
                 
         </div>

@@ -1,30 +1,5 @@
 <div class="top-image"></div>
 
 <div class="border-bottom border-3 p-3 mb-2"><h1 class="text-center">New snaps</h1></div>
-<div class="d-flex flex-wrap justify-content-between">
-  <!--カラム1-->
-  <div class="flex-column">
-    <% @snaps.each do |snap| %>
-      <ul class="m-1 p-1">
-        <li class="list-unstyled" style="width: 30vw; background-color: black;"><%= link_to image_tag(snap.image.url, class: "snap"), snap_path(snap) %></li>
-      </ul>
-    <% end %>
-  </div>
-  <!--カラム2-->
-  <div class="flex-column">
-    <% @snaps.each do |snap| %>
-      <ul class="m-1 p-1">
-        <li class="list-unstyled" style="width: 30vw; background-color: black;"><%= link_to image_tag(snap.image.url, class: "snap"), snap_path(snap) %></li>
-      </ul>
-    <% end %>
-  </div>
-  <!--カラム3-->
-  <div class="flex-column">
-    <% @snaps.each do |snap| %>
-      <ul class="m-1 p-1">
-        <li class="list-unstyled" style="width: 30vw; background-color: black;"><%= link_to image_tag(snap.image.url, class: "snap"), snap_path(snap) %></li>
-      </ul>
-    <% end %>
-  </div>
-  
-</div>
+
+<%= render "column_snaps", snaps: @snaps %>

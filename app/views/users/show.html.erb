@@ -1,18 +1,13 @@
 <!--ユーザアイコン-->
 <div class="text-center mt-5 pt-5">
- <i class="fa-solid fa-circle-user" id="user-show-icon"></i>
+ <i class="fa-solid fa-circle-user user-show-icon"></i>
  <h1><%= @user.name %></h1> 
 </div>
 
 <!--自分の投稿画像-->
 <h2>My snaps</h2>
-<div class="d-flex flex-wrap justify-content-between bg-dark" style="height: 20vh">
- <% @snaps.each do |snap| %>
-      <ul class="m-1 p-1">
-        <li class="list-unstyled" style="width: 30vw; background-color: black;"><%= link_to image_tag(snap.image.url, class: "snap"), snap_path(snap) %></li>
-      </ul>
-    <% end %>
-</div>
+<%= render "snaps/column_snaps", snaps: @my_snaps %>
 
 <!--お気に入り登録した画像-->
 <h2>Favorite snaps</h2>
+<%= render "snaps/column_snaps", snaps: @favorite_snaps %>

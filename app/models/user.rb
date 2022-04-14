@@ -11,9 +11,12 @@ class User < ApplicationRecord
   has_secure_password
   
   has_many :snaps
+  
   has_many :favorite_relationships
   # snapを取得
   has_many :favorite_snaps, through: :favorite_relationships, source: :snap
+  
+  has_many :comments
   
   def favorite(snap)
     self.favorite_relationships.find_or_create_by(snap_id: snap.id)

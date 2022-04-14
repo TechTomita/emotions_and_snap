@@ -1,0 +1,9 @@
+<div class="d-flex flex-wrap justify-content-start m-2">
+  <% snaps.each do |snap| %>
+    <span class="column-img bg-dark posted"><%= link_to image_tag(snap.image.url), snap_path(snap) %><p class="p-2"><a href="<%= user_path(snap.user) %>"><i class="fa-solid fa-circle-user"></i> <%= snap.user.name %></a><span> / Favorite: <i class="fa-solid fa-star"> <%= counts(snap) %></i></span></p></span>
+  <% end %>
+  
+  <% if snaps.count == 0 %>
+      <h3>No snap</h3>
+    <% end %>
+</div>

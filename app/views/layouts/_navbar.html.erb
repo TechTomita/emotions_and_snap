@@ -2,7 +2,6 @@
   <!--sm以下はメニューを折りたたむ-->
   <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
     <div class="container-fluid">
-      
       <!--ブランド名-->
       <a class="navbar-brand" href="/">Emotions & Snap</a>
       
@@ -13,17 +12,28 @@
       
       <!--リンク-->
       <div class="collapse navbar-collapse justify-content-between" id="navbarSuportedContent">
-        
+        <!--共通メニュー-->
         <ul class="navbar-nav">
-          <li class="nav-item"><%= link_to "Snaps", "#", class: "nav-link" %></li>
-          <li class="nav-item"><%= link_to "About", "#", class: "nav-link" %></li>
+          <li class="nav-item" type="button" data-bs-toggle="dropdown"><span class="nav-link">Snaps</span></li>
+              <ul class="dropdown-menu w-100">
+                <li class="dropdown-item"><%= link_to "Category1", category_path(Category.first), class: "link-border" %></li>
+                <li class="dropdown-divider"></li>
+                <li class="dropdown-item"><%= link_to "Category2", category_path(Category.second), class: "link-border" %></li>
+                <li class="dropdown-divider"></li>
+                <li class="dropdown-item"><%= link_to "Category3", category_path(Category.third), class: "link-border" %></li>
+                <li class="dropdown-divider"></li>
+                <li class="dropdown-item"><%= link_to "Category4", category_path(Category.fourth), class: "link-border" %></li>
+              </ul>
+          
+          <li class="nav-item"><%= link_to "About", about_snaps_path, class: "nav-link" %></li>
         </ul>
-        
+        <!--ログイン済みメニュー-->
         <% if logged_in? %>
           <ul class="navbar-nav">
+            <!--アップロードメニュー-->
             <li class="nav-item"><%= link_to "Upload", new_snap_path, class: "nav-link" %></li>
             <!--ユーザメニュー-->
-            <li class="nav-item dropdown-togolle" type="button" data-bs-toggle="dropdown"><span class="nav-link"><i class="fa-solid fa-circle-user"></i></span></li>
+            <li class="nav-item" type="button" data-bs-toggle="dropdown"><span class="nav-link"><i class="fa-solid fa-circle-user"></i></span></li>
               <ul class="dropdown-menu dropdown-menu-end">
                 <li class="dropdown-item"><%= link_to "User profile", user_path(current_user), class: "link-border" %></li>
                 <li class="dropdown-divider"></li>

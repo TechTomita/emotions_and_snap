@@ -14,23 +14,23 @@
  *= require_self
  */
  
-#user-show-icon {
+.user-show-icon {
   font-size: 10vw;
 }
 
 .half-view {
   width: 50vw;
-  height: 100vh;
+  height: 95vh;
 }
 
 .two-thirds-view {
   width: 66.5vw;
-  height: 100vh;
+  height: 95vh;
 }
 
 .one-third-view {
   width: 33.5vw;
-  height: 100vh
+  height: 95vh
 }
 
 .form {
@@ -89,9 +89,10 @@ select[name="snap[category_id]"] {
   margin: 2.5vw auto;
 }
 
-.image img {
+li img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }
 
 .snap {
@@ -101,4 +102,77 @@ select[name="snap[category_id]"] {
 
 .link-border {
   text-decoration: none;
+}
+
+.comment {
+  word-break: break-all;
+}
+
+.comment-box {
+ max-height: 50vh;
+ min-height: 0;
+}
+
+.text-area-height {
+  min-height: 4vh;
+  max-height: 8vh;
+}
+
+.show-img {
+  width: 66.5vw;
+  height: 95vh;
+}
+
+.show-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.fav-comment {
+  width: 100%;
+  height: 65%;
+}
+
+.column-img {
+  width: 32vw;
+  margin: 2vh 0.5vw;
+}
+
+.column-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.box-right {
+  width: 70vw;
+  height: 40vh;
+  float: right;
+}
+.box-left {
+  width: 70vw;
+  height: 40vh;
+  float: left;
+}
+
+.posted {
+  position: relative;
+}
+
+.posted p {
+  position: absolute;
+  background-color: rgba(0,0,0,0.65);
+  margin: 0;
+  padding: 0;
+  bottom: 0%;
+  width: 100%;
+  height: 10%;
+  opacity: 0;
+  transition: 0.2s ease-in-out;
+  color: white;
+}
+
+.posted:hover p {
+  opacity: 1;
 }

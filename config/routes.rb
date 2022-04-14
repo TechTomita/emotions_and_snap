@@ -14,11 +14,26 @@ Rails.application.routes.draw do
   post "login", to: "sessions#create"
   delete "logout", to: "sessions#destroy"
   
-  # snaps#index=Topページ, snaps#
-  resources :snaps
+  # snaps#index=Topページ, snaps#show=アイテム詳細ページ, snaps#new=アイテム投稿ページ, snaps#create=アイテム投稿アクション, snaps#destroy=アイテム削除アクション, snaps#edit=アイテム編集ページ
+  resources :snaps do
+    
+    # snaps#about=aboutページ
+    collection do
+      get :about
+    end
+    
+    # comments#create=コメント作成アクション
+    resources :comments, only: [:create]
+  end
   
   # favorite_relationships#create=お気に入り登録アクション, favorite_relationships#destroy=お気に入り削除アクション
   resources :favorite_relationships, only: [:create, :destroy]
+  
+  # comments#destroy=コメント削除アクション
+  resources :comments, only: [:destroy]
+  
+  # categories#show=カテゴリ一覧ページ
+  resources :categories, only: [:show]
 end
 
 # Prefix                 Verb   URI Pattern                           Controller#Action
@@ -41,6 +56,12 @@ end
 #                        PATCH  /snaps/:id(.:format)                  snaps#update
 #                        PUT    /snaps/:id(.:format)                  snaps#update
 #                        DELETE /snaps/:id(.:format)                  snaps#destroy
+# about_snaps            GET    /snaps/about(.:format)                snaps#about
 
 # favorite_relationships POST   /favorite_relationships(.:format)     favorite_relationships#create
 # favorite_relationship  DELETE /favorite_relationships/:id(.:format) favorite_relationships#destroy
+
+# snap_comments          POST   /snaps/:snap_id/comments(.:format)    comments#create
+# comment                DELETE /comments/:id(.:format)               comments#destroy
+
+# category               GET    /categories/:id(.:format)             categories#show

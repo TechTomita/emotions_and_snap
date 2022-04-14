@@ -8,6 +8,12 @@ class SnapsController < ApplicationController
 
   def show
     @snap = Snap.find(params[:id])
+    @comments = @snap.comments.all
+    counts(@snap)
+    
+    if logged_in?
+      @comment = current_user.comments.build
+    end
   end
 
   def new
@@ -38,6 +44,9 @@ class SnapsController < ApplicationController
   def destroy
     @snap.destroy
     redirect_to user_url(current_user)
+  end
+  
+  def about
   end
   
   

@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   include SessionsHelper
   
+  helper_method :counts
+  
   private
   
   # ログイン要求
@@ -10,7 +12,7 @@ class ApplicationController < ActionController::Base
     end
   end
   
-  def count(snap)
+  def counts(snap)
     @count_favorite = snap.favorite_users.count
   end
 end
