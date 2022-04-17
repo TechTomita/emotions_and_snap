@@ -5,9 +5,9 @@
 </div>
 
 <!--自分の投稿画像-->
-<h2>My snaps</h2>
+<div class="border-bottom border-3 m-4"><h2>My snaps</h2></div>
 <%= render "snaps/column_snaps", snaps: @my_snaps %>
 
 <!--お気に入り登録した画像-->
-<h2>Favorite snaps</h2>
+<div class="border-bottom border-3 m-4"><h2>Favorite snaps</h2></div>
 <%= render "snaps/column_snaps", snaps: @favorite_snaps %>
