@@ -89,10 +89,16 @@ select[name="snap[category_id]"] {
   margin: 2.5vw auto;
 }
 
-li img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.column-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 95vh;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .snap {
@@ -109,41 +115,14 @@ li img {
 }
 
 .comment-box {
- max-height: 50vh;
+ max-height: 30vh;
  min-height: 0;
 }
 
 .text-area-height {
-  min-height: 4vh;
+  height: 4vh;
   max-height: 8vh;
 }
-
-.show-img {
-  width: 66.5vw;
-  height: 95vh;
-}
-
-.show-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.fav-comment {
-  width: 100%;
-  height: 65%;
-}
-
-.column-img {
-  display: flex;
-  /*justify-content: center;*/
-  align-items: center;
-}
-
-/*.column-img img {*/
-/*  width: 100%;*/
-/*  height: 100%;*/
-/*}*/
 
 .box-right {
   width: 70vw;
@@ -175,4 +154,9 @@ li img {
 
 .posted:hover p {
   opacity: 1;
+}
+
+.overflow {
+  overflow-y: scroll;
+  max-height: 25vh;
 }

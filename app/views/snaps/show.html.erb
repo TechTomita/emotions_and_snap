@@ -1,32 +1,27 @@
-<div class="d-flex">
+<div class="row">
   
   <!--選択した画像-->
-    <li class="list-unstyled bg-dark two-thirds-view show-img">
+    <div class="bg-dark col-sm-9 column-img p-0">
       <%= image_tag(@snap.image.url) %>
-    </li>
-  
-  <!--画像の情報・コメント-->
-  <div class="one-third-view p-5">
+    </div>
     
-    <!--画像を投稿したユーザ-->
-    <h1 class="mb-2"><i class="fa-solid fa-circle-user"></i> <%= link_to @snap.user.name, user_path(@snap.user), class: "link-border" %></h1>
-    <!--お気に入りの数-->
-    <h4 class="mb-2"><i class="fa-solid fa-star"></i> Favorite <%= @count_favorite %></h4>
-    
-    <!--編集ページへのリンク-->
-    <% if logged_in? && current_user.id == @snap.user.id %>
-    <h3 class="text-end"><%= link_to "Edit item", edit_snap_path(@snap), class: "link-border" %></h3>
-    <% end %>
-    
-    <!--画像の説明-->
-    <h2 class="mt-3">Description</h2>
-    <h4 class="show-border mb-4"><%= simple_format(h(@snap.description),{}, wrapper_tag: "div") %></h4>
-    
-    <!--お気に入りボタン・コメントフォーム-->
-    <div class="fav-comment">
-    
-      <% if logged_in? %>
-        <div class="mb-4">
+    <div class="col-sm-3 p-3">
+      
+      <div>
+        <!--画像を投稿したユーザ-->
+        <h1><i class="fa-solid fa-circle-user"></i> <%= link_to @snap.user.name, user_path(@snap.user), class: "link-border" %></h1>
+        <!--お気に入りの数-->
+        <h4><i class="fa-solid fa-star"></i> Favorite <%= @count_favorite %></h4>
+        
+        <% if logged_in? && current_user.id == @snap.user.id %>
+          <h3 class="text-end"><%= link_to "Edit item", edit_snap_path(@snap), class: "link-border" %></h3>
+        <% end %>
+        
+        <!--画像の説明-->
+        <h2 class="mt-3">Description</h2>
+        <h4 class="show-border mb-4 overflow"><%= simple_format(h(@snap.description),{}, wrapper_tag: "div") %></h4>
+      </div>
+      <div class="mb-3">
           <% if logged_in? %>
             <!--削除ボタン-->
             <% if current_user.favorite?(@snap) %>
@@ -42,23 +37,12 @@
               <% end %>
             <% end %>
           <% end %>
-        </div>
-        
-        <!--コメント投稿-->
-        <div class="mb-2">
-          <%= form_with(model: [@snap, @comment]) do |f| %>
-            <div class="d-flex">
-            <%= f.text_area :content, class: "form-control text-area-height", placeholder: "add comment" %>
-            <%= f.hidden_field :snap_id, value: @snap.id %>
-            <%= f.submit "Add", class: "btn btn-dark text-area-height ms-2" %>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
+      </div>
+      <div>
       
       <!--コメント一覧-->
       <h4>Comments</h4>
-      <div class="border p-2 comment-box" style="overflow-y: scroll;">
+      <div class="border p-2 mb-3 comment-box overflow">
         <!--コメント0-->
         <% if @comments.count == 0 %>
           <li class="list-unstyled">no comment</li>
@@ -77,13 +61,25 @@
         <% end %>
       </div>
       
+      <% if logged_in? %>
+        
+        <!--コメント投稿-->
+        <div class="mb-2">
+          <%= form_with(model: [@snap, @comment]) do |f| %>
+            <div class="d-flex">
+            <%= f.text_area :content, class: "form-control text-area-height", placeholder: "add comment" %>
+            <%= f.hidden_field :snap_id, value: @snap.id %>
+            <%= f.submit "Add", class: "btn btn-dark text-area-height ms-2" %>
+            </div>
+          <% end %>
+        </div>
+        
+      <% end %>
+      
       <% unless logged_in? %>
         <%= link_to "Sign in add to comment", login_path, class: "btn btn-dark w-100 mt-3" %>
-        <p class="pb-5">New user? <%= link_to "Sign up now!", signup_path %></p>
+        <p>New user? <%= link_to "Sign up now!", signup_path %></p>
       <% end %>
     
     </div>
-    
-  </div>
-  
-</div>
+    </div>
