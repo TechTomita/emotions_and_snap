@@ -1,16 +1,16 @@
 <div class="d-flex">
   <!--編集する画像-->
-  <div class="two-thirds-view bg-dark">
+  <div class="bg-dark col-sm-9 column-img p-0">
     <li class="list-unstyled image show-img"><%= image_tag(@snap.image.url) %></li>
   </div>
   
   <!--編集フォーム-->
-  <div class="one-third-view">
+  <div class="col-sm-3 p-3">
     <%= form_with(model: @snap) do |f| %>
   
       <%= render "layouts/error_messages", model: f.object %>
     
-      <div class="edit-snap-form">
+      <div class="mt-5">
         <div class="input-border">
                 
           <div class="snap-input">
